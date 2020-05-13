@@ -1,8 +1,7 @@
 name: speed_dial
 description: A speed dial for Flutter.
 version: 0.0.1
-author:
-homepage:
+repository: https://github.com/janoschpelzer/speed_dial
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
