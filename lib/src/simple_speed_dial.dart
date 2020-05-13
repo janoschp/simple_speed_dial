@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'speed_dial_child.dart';
+import 'simple_speed_dial_child.dart';
 
 class SpeedDial extends StatefulWidget {
   const SpeedDial({
