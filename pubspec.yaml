@@ -1,6 +1,6 @@
 name: simple_speed_dial
-description: A speed dial for Flutter.
-version: 0.0.1
+description: A simple speed dial for Flutter.
+version: 0.0.2
 repository: https://github.com/janoschpelzer/simple_speed_dial
 
 environment:

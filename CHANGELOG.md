@@ -1,3 +1,7 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.1] - 2020-05-14
 
-* TODO: Describe initial release.
+* A simple speed dial
+
+## [0.0.2] - 2020-05-14
+
+* Added a changelog
