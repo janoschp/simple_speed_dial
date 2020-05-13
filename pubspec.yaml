@@ -1,7 +1,7 @@
 name: simple_speed_dial
-description: A simple speed dial for Flutter.
-version: 0.0.2
-repository: https://github.com/janoschpelzer/simple_speed_dial
+description: A simple speed dial for Flutter. You can use as many speed dial options as you want. You can use labels next to the speed dial options. Colors of every fab can be set.
+version: 0.1.0
+homepage: https://github.com/janoschpelzer/simple_speed_dial
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
