@@ -92,6 +92,7 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
     int speedDialChildAnimationIndex = 0;
 
     return Column(
+      mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
         if (!_animationController.isDismissed)
@@ -139,7 +140,7 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
                                   if (speedDialChild.closeSpeedDialOnPressed) {
                                     _animationController.reverse();
                                   }
-                                  speedDialChild.onPressed();
+                                  speedDialChild.onPressed?.call();
                                 },
                               ),
                             ),
