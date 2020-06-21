@@ -1,8 +1,8 @@
 name: example
-description: A new Flutter project.
+description: Example project for the simple_speed_dial widget.
 
 publish_to: 'none'
-version: 1.0.0+1
+version: 0.0.1
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -12,8 +12,6 @@ dependencies:
     sdk: flutter
   simple_speed_dial:
     path: ../
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
+
 flutter:
   uses-material-design: true

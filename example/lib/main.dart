@@ -41,35 +41,38 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Icon(Icons.add),
         speedDialChildren: <SpeedDialChild>[
           SpeedDialChild(
-              child: Icon(Icons.directions_run),
-              foregroundColor: Colors.white,
-              backgroundColor: Colors.red,
-              label: 'Let\'s start a run!',
-              onPressed: () {
-                setState(() {
-                  _text = 'You pressed \"Let\'s start a run!\"';
-                });
-              }),
+            child: Icon(Icons.directions_run),
+            foregroundColor: Colors.white,
+            backgroundColor: Colors.red,
+            label: 'Let\'s start a run!',
+            onPressed: () {
+              setState(() {
+                _text = 'You pressed \"Let\'s start a run!\"';
+              });
+            },
+          ),
           SpeedDialChild(
-              child: Icon(Icons.directions_walk),
-              foregroundColor: Colors.black,
-              backgroundColor: Colors.yellow,
-              label: 'Let\'s start go for a walk!',
-              onPressed: () {
-                setState(() {
-                  _text = 'You pressed \"Let\'s go for a walk!\"';
-                });
-              }),
+            child: Icon(Icons.directions_walk),
+            foregroundColor: Colors.black,
+            backgroundColor: Colors.yellow,
+            label: 'Let\'s go for a walk!',
+            onPressed: () {
+              setState(() {
+                _text = 'You pressed \"Let\'s go for a walk!\"';
+              });
+            },
+          ),
           SpeedDialChild(
-              child: Icon(Icons.directions_bike),
-              foregroundColor: Colors.white,
-              backgroundColor: Colors.green,
-              label: 'Let\'s go cycling!',
-              onPressed: () {
-                setState(() {
-                  _text = 'You pressed \"Let\'s go cycling!\"';
-                });
-              })
+            child: Icon(Icons.directions_bike),
+            foregroundColor: Colors.white,
+            backgroundColor: Colors.green,
+            label: 'Let\'s go cycling!',
+            onPressed: () {
+              setState(() {
+                _text = 'You pressed \"Let\'s go cycling!\"';
+              });
+            },
+          ),
         ],
         closedForegroundColor: Colors.black,
         openForegroundColor: Colors.white,
