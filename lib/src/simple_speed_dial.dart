@@ -87,6 +87,13 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
     super.initState();
   }
 
+  void _onChildPressed(speedDialChild) {
+    if (speedDialChild.closeSpeedDialOnPressed) {
+      _animationController.reverse();
+    }
+    speedDialChild.onPressed?.call();
+  }
+
   @override
   Widget build(BuildContext context) {
     int speedDialChildAnimationIndex = 0;
@@ -112,16 +119,21 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
                             child: Card(
                               elevation: 6.0,
                               color: Colors.white,
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                  left: 16.0,
-                                  right: 16.0,
-                                  top: 8.0,
-                                  bottom: 8.0,
-                                ),
-                                child: Text(
-                                  speedDialChild.label,
-                                  style: widget.labelsStyle,
+                              child: InkWell(
+                                onTap: () {
+                                  _onChildPressed(speedDialChild);
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                    left: 16.0,
+                                    right: 16.0,
+                                    top: 8.0,
+                                    bottom: 8.0,
+                                  ),
+                                  child: Text(
+                                    speedDialChild.label,
+                                    style: widget.labelsStyle,
+                                  ),
                                 ),
                               ),
                             ),
@@ -137,10 +149,7 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
                                 foregroundColor: speedDialChild.foregroundColor,
                                 backgroundColor: speedDialChild.backgroundColor,
                                 onPressed: () {
-                                  if (speedDialChild.closeSpeedDialOnPressed) {
-                                    _animationController.reverse();
-                                  }
-                                  speedDialChild.onPressed?.call();
+                                  _onChildPressed(speedDialChild);
                                 },
                               ),
                             ),
