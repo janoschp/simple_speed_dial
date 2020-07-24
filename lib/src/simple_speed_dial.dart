@@ -119,6 +119,7 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
                             child: Card(
                               elevation: 6.0,
                               color: Colors.white,
+                              clipBehavior: Clip.antiAlias,
                               child: InkWell(
                                 onTap: () {
                                   _onChildPressed(speedDialChild);
