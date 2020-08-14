@@ -14,3 +14,8 @@
 
 * Fixed a typo.
 * Added a code example to the README.md.
+
+## [0.1.2] - 2020-08-14
+
+* Fixed setState call when not mounted.
+* Added more analysis_options.yaml rules.
