@@ -40,13 +40,17 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
   AnimationController _animationController;
   Animation<Color> _backgroundColorAnimation;
   Animation<Color> _foregroundColorAnimation;
-  List<Animation<double>> _speedDialChildAnimations = <Animation<double>>[];
+  final List<Animation<double>> _speedDialChildAnimations = <Animation<double>>[];
 
   @override
   void initState() {
-    _animationController = (widget.controller ??
-        AnimationController(vsync: this, duration: const Duration(milliseconds: 450)))
-      ..addListener(() => setState(() {}));
+    _animationController =
+        widget.controller ?? AnimationController(vsync: this, duration: const Duration(milliseconds: 450));
+    _animationController.addListener(() {
+      if (mounted) {
+        setState(() {});
+      }
+    });
 
     _backgroundColorAnimation = ColorTween(
       begin: widget.closedBackgroundColor,
