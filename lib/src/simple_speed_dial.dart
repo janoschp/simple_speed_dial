@@ -111,25 +111,26 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
                         mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(right: 16.0 - 4.0),
-                            child: Card(
-                              elevation: 6.0,
-                              color: Colors.white,
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                  left: 16.0,
-                                  right: 16.0,
-                                  top: 8.0,
-                                  bottom: 8.0,
-                                ),
-                                child: Text(
-                                  speedDialChild.label,
-                                  style: widget.labelsStyle,
+                          if (speedDialChild.label != null)
+                            Padding(
+                              padding: const EdgeInsets.only(right: 16.0 - 4.0),
+                              child: Card(
+                                elevation: 6.0,
+                                color: Colors.white,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                    left: 16.0,
+                                    right: 16.0,
+                                    top: 8.0,
+                                    bottom: 8.0,
+                                  ),
+                                  child: Text(
+                                    speedDialChild.label,
+                                    style: widget.labelsStyle,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
                           ScaleTransition(
                             scale: _speedDialChildAnimations[speedDialChildAnimationIndex],
                             child: Padding(
