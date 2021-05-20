@@ -14,21 +14,21 @@ class SpeedDial extends StatefulWidget {
     this.openBackgroundColor,
   });
 
-  final Widget child;
+  final Widget? child;
 
-  final List<SpeedDialChild> speedDialChildren;
+  final List<SpeedDialChild>? speedDialChildren;
 
-  final TextStyle labelsStyle;
+  final TextStyle? labelsStyle;
 
-  final AnimationController controller;
+  final AnimationController? controller;
 
-  final Color closedForegroundColor;
+  final Color? closedForegroundColor;
 
-  final Color openForegroundColor;
+  final Color? openForegroundColor;
 
-  final Color closedBackgroundColor;
+  final Color? closedBackgroundColor;
 
-  final Color openBackgroundColor;
+  final Color? openBackgroundColor;
 
   @override
   State<StatefulWidget> createState() {
@@ -37,9 +37,9 @@ class SpeedDial extends StatefulWidget {
 }
 
 class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation<Color> _backgroundColorAnimation;
-  Animation<Color> _foregroundColorAnimation;
+  late AnimationController _animationController;
+  late Animation<Color?> _backgroundColorAnimation;
+  late Animation<Color?> _foregroundColorAnimation;
   final List<Animation<double>> _speedDialChildAnimations = <Animation<double>>[];
 
   @override
@@ -62,8 +62,8 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
       end: widget.openForegroundColor,
     ).animate(_animationController);
 
-    final double fractionOfOneSpeedDialChild = 1.0 / widget.speedDialChildren.length;
-    for (int speedDialChildIndex = 0; speedDialChildIndex < widget.speedDialChildren.length; ++speedDialChildIndex) {
+    final double fractionOfOneSpeedDialChild = 1.0 / widget.speedDialChildren!.length;
+    for (int speedDialChildIndex = 0; speedDialChildIndex < widget.speedDialChildren!.length; ++speedDialChildIndex) {
       final List<TweenSequenceItem<double>> tweenSequenceItems = <TweenSequenceItem<double>>[];
 
       final double firstWeight = fractionOfOneSpeedDialChild * speedDialChildIndex;
@@ -80,7 +80,7 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
       ));
 
       final double lastWeight =
-          fractionOfOneSpeedDialChild * (widget.speedDialChildren.length - 1 - speedDialChildIndex);
+          fractionOfOneSpeedDialChild * (widget.speedDialChildren!.length - 1 - speedDialChildIndex);
       if (lastWeight > 0.0) {
         tweenSequenceItems.add(TweenSequenceItem<double>(tween: ConstantTween<double>(1.0), weight: lastWeight));
       }
@@ -124,7 +124,7 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
                                   bottom: 8.0,
                                 ),
                                 child: Text(
-                                  speedDialChild.label,
+                                  speedDialChild.label!,
                                   style: widget.labelsStyle,
                                 ),
                               ),
@@ -154,7 +154,7 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
                     );
                     speedDialChildAnimationIndex++;
                     return speedDialChildWidget;
-                  })?.toList() ??
+                  }).toList() ??
                   <Widget>[],
             ),
           ),

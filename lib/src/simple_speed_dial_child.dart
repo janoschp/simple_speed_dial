@@ -10,15 +10,15 @@ class SpeedDialChild {
     this.closeSpeedDialOnPressed = true,
   });
 
-  final Widget child;
+  final Widget? child;
 
-  final Color foregroundColor;
+  final Color? foregroundColor;
 
-  final Color backgroundColor;
+  final Color? backgroundColor;
 
-  final String label;
+  final String? label;
 
-  final Function onPressed;
+  final Function? onPressed;
 
   final bool closeSpeedDialOnPressed;
 }
