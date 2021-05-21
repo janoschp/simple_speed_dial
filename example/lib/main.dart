@@ -13,13 +13,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Speed dial example'),
+      home: const MyHomePage(title: 'Speed dial example'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -38,10 +38,10 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(child: Text(_text)),
       floatingActionButton: SpeedDial(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         speedDialChildren: <SpeedDialChild>[
           SpeedDialChild(
-            child: Icon(Icons.directions_run),
+            child: const Icon(Icons.directions_run),
             foregroundColor: Colors.white,
             backgroundColor: Colors.red,
             label: 'Let\'s start a run!',
@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
             },
           ),
           SpeedDialChild(
-            child: Icon(Icons.directions_walk),
+            child: const Icon(Icons.directions_walk),
             foregroundColor: Colors.black,
             backgroundColor: Colors.yellow,
             label: 'Let\'s go for a walk!',
@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
             },
           ),
           SpeedDialChild(
-            child: Icon(Icons.directions_bike),
+            child: const Icon(Icons.directions_bike),
             foregroundColor: Colors.white,
             backgroundColor: Colors.green,
             label: 'Let\'s go cycling!',
