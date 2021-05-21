@@ -19,3 +19,7 @@
 
 * Fixed setState call when not mounted.
 * Added more analysis_options.yaml rules.
+
+## [0.1.3]
+
+* Using null-safety.
