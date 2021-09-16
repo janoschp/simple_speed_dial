@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: const Icon(Icons.directions_bike),
             foregroundColor: Colors.white,
             backgroundColor: Colors.green,
-            label: 'Let\'s go cycling!',
+            // label: 'Let\'s go cycling!',
             onPressed: () {
               setState(() {
                 _text = 'You pressed \"Let\'s go cycling!\"';
