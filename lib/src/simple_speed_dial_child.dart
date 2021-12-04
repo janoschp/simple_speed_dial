@@ -1,24 +1,37 @@
 import 'package:flutter/widgets.dart';
 
 class SpeedDialChild {
+  /// Creates a [SpeedDialChild].
+  ///
+  /// This represents the styling and bahaviour for a single [SpeedDialChild] in the
+  /// [SpeedDial] child list.
   const SpeedDialChild({
-    this.child,
+    required this.child,
+    required this.onPressed,
     this.foregroundColor,
     this.backgroundColor,
     this.label,
-    this.onPressed,
     this.closeSpeedDialOnPressed = true,
   });
 
-  final Widget? child;
+  /// A widget to display as the [SpeedDialChild].
+  final Widget child;
 
+  /// A callback to be executed when the [SpeedDialChild] is pressed.
+  final Function onPressed;
+
+  /// The [SpeedDialChild] foreground color.
   final Color? foregroundColor;
 
+  /// The [SpeedDialChild] background color.
   final Color? backgroundColor;
 
+  /// The text displayed next to the [SpeedDialChild] when the [SpeedDial] is open.
   final String? label;
 
-  final Function? onPressed;
-
+  /// Whether the [SpeedDial] should close after the [onPressed] callback of
+  /// [SpeedDialChild] is called.
+  ///
+  /// Defaults to [true].
   final bool closeSpeedDialOnPressed;
 }
