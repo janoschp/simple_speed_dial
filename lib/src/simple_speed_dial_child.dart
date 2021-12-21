@@ -1,10 +1,6 @@
 import 'package:flutter/widgets.dart';
 
 class SpeedDialChild {
-  /// Creates a [SpeedDialChild].
-  ///
-  /// This represents the styling and bahaviour for a single [SpeedDialChild] in the
-  /// [SpeedDial] child list.
   const SpeedDialChild({
     required this.child,
     required this.onPressed,

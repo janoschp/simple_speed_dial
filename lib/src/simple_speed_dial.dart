@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'simple_speed_dial_child.dart';
 
 class SpeedDial extends StatefulWidget {
-  /// Creates a [SpeedDial] containing the provided [SpeedDialChild] list.
   const SpeedDial({
     required this.child,
     required this.speedDialChildren,
@@ -15,10 +14,9 @@ class SpeedDial extends StatefulWidget {
     this.openBackgroundColor,
   });
 
-  /// The speed dial display widget.
   final Widget child;
 
-  /// A [SpeedDialChild] list to display when the [SpeedDial] is open.
+  /// A list of [SpeedDialChild] to display when the [SpeedDial] is open.
   final List<SpeedDialChild> speedDialChildren;
 
   /// Specifies the [SpeedDialChild] label text style.
@@ -26,8 +24,8 @@ class SpeedDial extends StatefulWidget {
 
   /// An animation controller for the [SpeedDial].
   ///
-  /// Provide a [AnimationController] to control the animations
-  /// from outsidd the [SpeedDial] widget.
+  /// Provide an [AnimationController] to control the animations
+  /// from outside the [SpeedDial] widget.
   final AnimationController? controller;
 
   /// The color of the [SpeedDial] button foreground when closed.
