@@ -29,3 +29,8 @@
 * Labels are now clickable
 * Labels are now optional
 * Fixed and cleaned up example project
+
+## [0.1.5]
+
+* Labels background color can be changed
+* Fixed disposing of AnimationController
