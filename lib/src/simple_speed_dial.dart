@@ -4,6 +4,7 @@ import 'simple_speed_dial_child.dart';
 
 class SpeedDial extends StatefulWidget {
   const SpeedDial({
+    Key? key,
     required this.child,
     required this.speedDialChildren,
     this.labelsStyle,
@@ -12,7 +13,7 @@ class SpeedDial extends StatefulWidget {
     this.openForegroundColor,
     this.closedBackgroundColor,
     this.openBackgroundColor,
-  });
+  }) : super(key: key);
 
   final Widget child;
 
@@ -66,8 +67,7 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
 
   @override
   void initState() {
-    _animationController =
-        widget.controller ?? AnimationController(vsync: this, duration: const Duration(milliseconds: 450));
+    _animationController = widget.controller ?? AnimationController(vsync: this, duration: const Duration(milliseconds: 450));
     _animationController.addListener(() {
       if (mounted) {
         setState(() {});
@@ -101,8 +101,7 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
         weight: fractionOfOneSpeedDialChild,
       ));
 
-      final double lastWeight =
-          fractionOfOneSpeedDialChild * (widget.speedDialChildren.length - 1 - speedDialChildIndex);
+      final double lastWeight = fractionOfOneSpeedDialChild * (widget.speedDialChildren.length - 1 - speedDialChildIndex);
       if (lastWeight > 0.0) {
         tweenSequenceItems.add(TweenSequenceItem<double>(tween: ConstantTween<double>(1.0), weight: lastWeight));
       }
@@ -133,25 +132,31 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(right: 16.0 - 4.0),
-                        child: Card(
-                          elevation: 6.0,
-                          color: Colors.white,
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                              left: 16.0,
-                              right: 16.0,
-                              top: 8.0,
-                              bottom: 8.0,
-                            ),
-                            child: Text(
-                              speedDialChild.label!,
-                              style: widget.labelsStyle,
+                      if (speedDialChild.label != null)
+                        Padding(
+                          padding: const EdgeInsets.only(right: 16.0 - 4.0),
+                          child: Card(
+                            elevation: 6.0,
+                            color: Colors.white,
+                            semanticContainer: true,
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            child: InkWell(
+                              onTap: () => _onTap(speedDialChild),
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 16.0,
+                                  right: 16.0,
+                                  top: 8.0,
+                                  bottom: 8.0,
+                                ),
+                                child: Text(
+                                  speedDialChild.label!,
+                                  style: widget.labelsStyle,
+                                ),
+                              ),
                             ),
                           ),
                         ),
-                      ),
                       ScaleTransition(
                         scale: _speedDialChildAnimations[speedDialChildAnimationIndex],
                         child: Padding(
@@ -162,12 +167,7 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
                             child: speedDialChild.child,
                             foregroundColor: speedDialChild.foregroundColor,
                             backgroundColor: speedDialChild.backgroundColor,
-                            onPressed: () {
-                              if (speedDialChild.closeSpeedDialOnPressed) {
-                                _animationController.reverse();
-                              }
-                              speedDialChild.onPressed.call();
-                            },
+                            onPressed: () => _onTap(speedDialChild),
                           ),
                         ),
                       ),
@@ -196,5 +196,12 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
         )
       ],
     );
+  }
+
+  void _onTap(SpeedDialChild speedDialChild) {
+    if (speedDialChild.closeSpeedDialOnPressed) {
+      _animationController.reverse();
+    }
+    speedDialChild.onPressed.call();
   }
 }

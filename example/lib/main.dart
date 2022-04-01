@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:simple_speed_dial/simple_speed_dial.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -44,10 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
             child: const Icon(Icons.directions_run),
             foregroundColor: Colors.white,
             backgroundColor: Colors.red,
-            label: 'Let\'s start a run!',
+            label: 'Let\'s go for a run!',
             onPressed: () {
               setState(() {
-                _text = 'You pressed \"Let\'s start a run!\"';
+                _text = 'You pressed "Let\'s go for a run!"';
               });
             },
           ),
@@ -55,10 +57,9 @@ class _MyHomePageState extends State<MyHomePage> {
             child: const Icon(Icons.directions_walk),
             foregroundColor: Colors.black,
             backgroundColor: Colors.yellow,
-            label: 'Let\'s go for a walk!',
             onPressed: () {
               setState(() {
-                _text = 'You pressed \"Let\'s go for a walk!\"';
+                _text = 'You pressed "Let\'s go for a walk!"';
               });
             },
           ),
@@ -69,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Let\'s go cycling!',
             onPressed: () {
               setState(() {
-                _text = 'You pressed \"Let\'s go cycling!\"';
+                _text = 'You pressed "Let\'s go cycling!"';
               });
             },
           ),
