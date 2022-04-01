@@ -8,6 +8,7 @@ class SpeedDial extends StatefulWidget {
     required this.child,
     required this.speedDialChildren,
     this.labelsStyle,
+    this.labelsBackgroundColor,
     this.controller,
     this.closedForegroundColor,
     this.openForegroundColor,
@@ -22,6 +23,9 @@ class SpeedDial extends StatefulWidget {
 
   /// Specifies the [SpeedDialChild] label text style.
   final TextStyle? labelsStyle;
+
+  /// The background color of the labels.
+  final Color? labelsBackgroundColor;
 
   /// An animation controller for the [SpeedDial].
   ///
@@ -113,6 +117,12 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
   }
 
   @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     int speedDialChildAnimationIndex = 0;
 
@@ -137,18 +147,13 @@ class _SpeedDialState extends State<SpeedDial> with SingleTickerProviderStateMix
                           padding: const EdgeInsets.only(right: 16.0 - 4.0),
                           child: Card(
                             elevation: 6.0,
-                            color: Colors.white,
+                            color: widget.labelsBackgroundColor ?? Colors.white,
                             semanticContainer: true,
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             child: InkWell(
                               onTap: () => _onTap(speedDialChild),
                               child: Padding(
-                                padding: const EdgeInsets.only(
-                                  left: 16.0,
-                                  right: 16.0,
-                                  top: 8.0,
-                                  bottom: 8.0,
-                                ),
+                                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                                 child: Text(
                                   speedDialChild.label!,
                                   style: widget.labelsStyle,
