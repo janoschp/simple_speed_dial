@@ -23,3 +23,9 @@
 ## [0.1.3]
 
 * Using null-safety.
+
+## [0.1.4]
+
+* Labels are now clickable
+* Labels are now optional
+* Fixed and cleaned up example project

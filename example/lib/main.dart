@@ -57,6 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: const Icon(Icons.directions_walk),
             foregroundColor: Colors.black,
             backgroundColor: Colors.yellow,
+            label: 'Let\'s go for a walk!',
             onPressed: () {
               setState(() {
                 _text = 'You pressed "Let\'s go for a walk!"';
