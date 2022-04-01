@@ -42,7 +42,7 @@ Scaffold(
           });
         },
       ),
-      //  Your other SpeeDialChildren go here.        
+      //  Your other SpeedDialChildren go here.        
     ],
   ),
 );
