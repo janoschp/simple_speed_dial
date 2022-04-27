@@ -4,7 +4,7 @@ A simple speed dial widget for Flutter.
 
 Demonstration: 
 
-![](screenshots/demo.gif)
+![Demonstration](screenshots/demo.gif)
 
 Usage:
 
@@ -17,6 +17,7 @@ Scaffold(
     closedBackgroundColor: Colors.white,
     openBackgroundColor: Colors.black,
     labelsStyle: /* Your label TextStyle goes here */,
+    labelsBackgroundColor: Colors.white,
     controller: /* Your custom animation controller goes here */,
     speedDialChildren: <SpeedDialChild>[
       SpeedDialChild(

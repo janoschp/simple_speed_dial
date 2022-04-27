@@ -34,3 +34,7 @@
 
 * Labels background color can be changed
 * Fixed disposing of AnimationController
+
+## [0.1.6]
+
+* Updated Readme
