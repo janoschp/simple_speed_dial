@@ -38,3 +38,8 @@
 ## [0.1.6]
 
 * Updated Readme
+
+## [0.1.7]
+
+* Fixed formatting
+* updated the readme

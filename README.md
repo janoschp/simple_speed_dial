@@ -4,7 +4,7 @@ A simple speed dial widget for Flutter.
 
 Demonstration: 
 
-![Demonstration](screenshots/demo.gif)
+![Demonstration](https://raw.githubusercontent.com/janoschp/simple_speed_dial/main/screenshots/demo.gif)
 
 Usage:
 
